@@ -1,14 +1,5 @@
 import os
-from flask import (
-    Flask,
-    session,
-    render_template,
-    request,
-    abort,
-    flash,
-    redirect,
-    url_for,
-)
+from flask import (Flask, session, render_template, request, abort, flash, redirect,url_for,)
 
 app = Flask(__name__)
 # Secret key generated with secrets.token_urlsafe()
@@ -42,9 +33,11 @@ def signup():
 
         users[email] = password
         # session["email"] = email
-        # - Setting the session here would be okay if you
-        # - want users to be logged in immediately after
-        # - signing up.
+        """
+        Setting the session here would be okay if you
+        want users to be logged in immediately after
+        signing up.
+        """
         flash("Successfully signed up.")
         return redirect(url_for("login"))
     return render_template("signup.html")
